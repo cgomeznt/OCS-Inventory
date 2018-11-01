@@ -76,7 +76,7 @@ Requerimientos
 Instalación de PHP 7.X y sus componentes
 +++++++++++++++++++++++++++++++++++++++
 
-Ver este link para ver como se hace la instalación de PHP 7.X y sus componentes para OCS Inventory.
+Ver este `link<https://github.com/cgomeznt/OCS-Inventory/blob/master/guia/Install_Php.rst>`. para ver como se hace la instalación de PHP 7.X y sus componentes para OCS Inventory.
 
 Nota: 
 	la configuración del servidor OCS Inventory NG comprobará todos estos componentes y se cerrará si falta alguno.
@@ -84,7 +84,7 @@ Nota:
 Implementación del servidor de base de datos
 +++++++++++++++++++++++++++++++++++++++
 
-Ver este link para ver como se hace la instalación de Mariadb para OCS Inventory.
+Ver este `link<https://github.com/cgomeznt/OCS-Inventory/blob/master/guia/Deploying_database_server.rst>`. para ver como se hace la instalación de Mariadb para OCS Inventory.
 
 Instalación del servidor de comunicación (requiere módulos PERL)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
