@@ -169,6 +169,7 @@ puedes instalar el servidor ocs con RPM
 
 	wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 	wget https://rpm.ocsinventory-ng.org/ocsinventory-release-latest.el7.ocs.noarch.rpm
+	rpm -ivh ocsinventory-release-latest.el7.ocs.noarch.rpm
 
 Puedes instalar el repositorio con "yum"::
 
