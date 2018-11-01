@@ -73,13 +73,15 @@ No deje la contraseña de ocs, cambiela::
 
 	SET PASSWORD FOR ocs@'localhost' = PASSWORD('passwordhere');
 
+**IMPORTANTE** ESTO TRAE PROBLEMA CON EL AGENTE, el agente va leer el archivo z-ocsinventory-server.conf y ahí estara otro usuario y clave que no tiene permisos para la BD
+
 Desactivar el mensaje de advertencia en la consola de administración.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Advertencia: 
 	Le recomendamos que asegure su servidor siguiendo los párrafos anteriores, pero si lo desea, puede desactivar el mensaje de advertencia en la GUI
 
-Debe conectarse a la consola de administración, hacer clic en el menu Configuratio luego en Users, luego en la pestaña Administrar perfiles y elegir el perfil que desea modificar.
+Debe conectarse a la consola de administración, hacer clic en el menu Configuratio luego en Users, luego a mano izquierda el boton de Profiles, elegir el perfil que desea modificar.
 
 Haga clic en Derechos para administrar la pestaña, un conjunto Vea los mensajes de advertencia de la GUI en NO.
 
