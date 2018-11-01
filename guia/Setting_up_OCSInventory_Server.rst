@@ -4,8 +4,11 @@ Configuración del servidor de inventario OCS
 El servidor de administración se compone de 4 componentes principales:
 
 **Servidor de base de datos**, que almacena información de inventario.
+
 **Servidor de comunicaciones**, que maneja las comunicaciones HTTP entre el servidor de base de datos y los agentes.
+
 **Consola de administración**, que permite a los administradores consultar el servidor de la base de datos utilizando su navegador favorito.
+
 **Servidor de implementación**, que almacena toda la configuración de implementación del paquete (¡requiere HTTPS!).
 Estos 4 componentes se pueden alojar en una sola computadora o en diferentes computadoras para permitir el equilibrio de carga. Por encima de los 10000 equipos inventariados, recomendamos utilizar al menos 2 servidores físicos, un servidor de base de datos de hosting + servidor de comunicaciones y el otro con una réplica de base de datos + servidor de administración + servidor de implementación.
 
@@ -13,8 +16,11 @@ Estos 4 componentes se pueden alojar en una sola computadora o en diferentes com
 
 
 **El servidor de base de datos** actualmente solo puede ser MySQL 5.4 o superior con el motor InnoDB activo. 
+
 **El servidor de comunicaciones** necesita Apache Web Server 2.2.X / 2.4.X y está escrito en PERL como un módulo de Apache. ¿Por qué? Porque los scripts PERL se compilan cuando se inicia Apache, y no en cada solicitud. Esto es mejor en cuanto a rendimiento. 
+
 **El servidor de comunicación** puede requerir algunos módulos PERL adicionales, de acuerdo con su distribución. 
+
 **El servidor de implementación** necesita cualquier servidor web con SSL habilitado. La consola de administración está escrita en PHP 5.6 (o superior) y se ejecuta en Apache Web Server 2.2.X /2.4.X. La consola de administración requiere compatibilidad con ZIP y GD habilitada en PHP para poder usar el despliegue de paquetes.
 
 
