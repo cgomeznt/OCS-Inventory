@@ -35,7 +35,7 @@ Instalamos los siguientes componentes que son necesarios para OCS Inventory::
 
 	yum install -y php php-common php-zip php-gd php-mbstring php-soap php-mysql php-xml
 
-**IMPORTANTE** ponemos la instalación de PHP 7.x, pero no es estable con OCS Inventory 2.5
+**IMPORTANTE** podemos la instalación de PHP 7.x, pero no es estable con OCS Inventory 2.5
 
 Instalar PHP 5.X
 +++++++++++++++++++++++
@@ -58,19 +58,16 @@ Instalamos los siguientes componentes que son necesarios para OCS Inventory::
 	yum-config-manager --enable remi-php56   # [Install PHP 5.6]
 	yum install -y php php-common php-zip php-gd php-mbstring php-soap php-mysql php-xml
 
-	wget http://yum.oracle.com/repo/OracleLinux/OL7/optional/latest/x86_64/getPackage/php-mbstring-5.4.16-45.el7.x86_64.rpm
-	rpm -ivh php-mbstring-5.4.16-45.el7.x86_64.rpm
-
-
-Vamos hacer una prueba para certificar que php esta integrado con apache2.::
+Vamos hacer una prueba para certificar que php esta integrado con apache.::
 
 	vi /var/www/html/testphp.php
-		<?php
-		// Muestra toda la informacion de PHP
-		phpinfo();
-		// Muestra la informacion de los modulos
-		phpinfo(INFO_MODULES);
-		?>
+
+	<?php
+	// Muestra toda la informacion de PHP
+	phpinfo();
+	// Muestra la informacion de los modulos
+	phpinfo(INFO_MODULES);
+	?>
 
 Tips::
 

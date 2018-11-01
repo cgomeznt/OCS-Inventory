@@ -120,6 +120,7 @@ Vamos a instalar estos paquetes primero, que son dependencias y no estan en los 
 	rpm -ivh perl-Switch-2.16-7.el7.noarch.rpm
 
 	wget http://rpms.remirepo.net/enterprise/7/remi/x86_64//perl-Apache2-SOAP-0.73-13.el7.remi.noarch.rpm
+	yum install -y perl-SOAP-Lite
 	rpm -ivh perl-Apache2-SOAP-0.73-13.el7.remi.noarch.rpm
 
 	wget https://harbottle.gitlab.io/epmel/7/x86_64//perl-Apache-DBI-1.12-2.el7.noarch.rpm
@@ -130,7 +131,7 @@ Vamos a instalar estos paquetes primero, que son dependencias y no estan en los 
 
 	yum install -y perl-XML-Simple perl-Compress-Zlib perl-DBI perl-DBD-MySQL perl-Net-IP perl-SOAP-Lite perl-Archive-Zip perl-Mojolicious perl-Plack perl-XML-Entities perl-Switch perl-YAML.noarch
 
-**En oracle linux**: Tambien puede instalar todos los modulos de PERL desde el CPAN, Ver este link para ver como se hace la instalación de PERL para OCS Inventory.
+**En oracle linux**: Tambien puede instalar todos los modulos de PERL desde el CPAN, Ver este `link <https://github.com/cgomeznt/OCS-Inventory/blob/master/guia/Install_Perl.rst>`_- para ver como se hace la instalación de PERL para OCS Inventory.
 
 
 Instalación de la consola de administración (requiere módulos PHP)
