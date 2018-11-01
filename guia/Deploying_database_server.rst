@@ -25,7 +25,7 @@ Nota:
 
 En OracleLinux/Redhat/Centos 7 puede usar "yum" para instalar mariadb::
 
-	yum install -y mariadb-server
+	yum install -y MariaDB-server
 
 Launch MariaDB
 +++++++++++++++

@@ -28,6 +28,16 @@ Suponemos que usted tiene:
 * PHP y Perl instalados y utilizables por el servidor web Apache para la consola de administración.
 * Perl y mod_perl instalados y utilizables por el servidor web Apache para el servidor de comunicación.
 
+configuremos el EPEL su ultimo release
++++++++++++++++++++++++++++++++++++++++
+
+**En OracleLinux/Redhat/Centos 7 como Linux**,::
+
+	yum install -y wget
+	
+	wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+	rpm -ivh epel-release-latest-7.noarch.rpm
+	yum update
 
 Requerimientos
 ++++++++++++++++++
@@ -75,13 +85,6 @@ Instalación del servidor de comunicación (requiere módulos PERL)
 
 El servidor de comunicación web requiere el servidor web Apache y el lenguaje de scripting Perl 5 y algunos módulos adicionales para Perl 5 (ver Requisitos). Actúa como un módulo de Apache que maneja las solicitudes de los agentes de inventario HTTP OCS a un directorio virtual/ocsinventory. Ya el servidor de comunicación web requiere dependencias de mysql si elige instalar el servidor de base de datos solo, puede consultar esta página: Implementación del servidor de base de datos
 
-**En OracleLinux/Redhat/Centos 7 como Linux**, configuremos el EPEL su ultimo release::
-
-	yum install -y wget
-	
-	wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-	rpm -ivh epel-release-latest-7.noarch.rpm
-
 **En OracleLinux/Redhat/Centos 7 como Linux**::
 
 	yum install -y  httpd
@@ -119,7 +122,7 @@ Vamos a instalar estos paquetes primero, que son dependencias y no estan en los 
 
 **En Redhat/Centos 7 como Linux**:, puede usar "yum" para configurar los módulos requeridos::
 
-	yum install perl-XML-Simple perl-Compress-Zlib perl-DBI perl-DBD-MySQL perl-Net-IP perl-SOAP-Lite perl-Archive-Zip perl-Mojolicious perl-Plack perl-XML-Entities perl-Switch
+	yum install -y perl-XML-Simple perl-Compress-Zlib perl-DBI perl-DBD-MySQL perl-Net-IP perl-SOAP-Lite perl-Archive-Zip perl-Mojolicious perl-Plack perl-XML-Entities perl-Switch perl-YAML.noarch
 
 **En oracle linux**: Tambien puede instalar todos los modulos de PERL desde el CPAN, Ver este link para ver como se hace la instalación de PERL para OCS Inventory.
 
@@ -148,7 +151,7 @@ La consola de administración web requiere el servidor web Apache y el lenguaje 
 
 **En OracleLinux/Redhat/Centos 7 como Linux**::
 
-	yum install php-gd
+	yum install mod_perl php-gd
 
 Instalación de OCS Inventory Server con RPM
 +++++++++++++++++++++++++++++++++++++++++++++++++
@@ -205,54 +208,48 @@ Advertencia:
 	Do you wish to continue ([y]/n)?
 
 
-Escriba "y" o "entrar" para continuar con la instalación::
+Escriba "y" o "entrar" para continuar con la instalación
+
+
+Escriba “y” o “ingresar” para validar y luego ingrese la dirección de host del servidor MySQL, en la mayoría de los casos localhost.::
 
 	Which host is running database server [localhost] ?
 
-
-Escriba “y” o “ingresar” para validar y luego ingrese la dirección de host del servidor MySQL, en la mayoría de los casos localhost.
-
-Luego, la configuración comprueba si hay archivos binarios del cliente MySQL versión 4.1 o superior. Si no está presente, se le pedirá que continúe o cancele la configuración.::
-
-	On which port is running database server [3306] ?
-
+Luego, la configuración comprueba si hay archivos binarios del cliente MySQL versión 4.1 o superior. Si no está presente, se le pedirá que continúe o cancele la configuración.
 
 Si todo está bien, ingrese el puerto del servidor MySQL, generalmente 3306.::
 
+	On which port is running database server [3306] ?
+
+Ingrese o valide la ruta al binario del daemon de Apache, generalmente "/usr/sbin/httpd". Se utilizará para encontrar los archivos de configuración de Apache.::
+
 	Where is Apache daemon binary [/usr/sbin/httpd] ?
-
-Ingrese o valide la ruta al binario del daemon de Apache, generalmente "/usr/sbin/httpd". Se utilizará para encontrar los archivos de configuración de Apache.
-
 
 Nota: 
 	Si no está utilizando el daemon Apache del sistema, pero otro como el servidor Apache XAMPP/LAMPP, debe ingresar la ruta completa a su demonio de Apache, no a la del sistema.
-::
+
+Ingrese o valide la ruta del archivo de configuración principal de Apache, generalmente "/etc/apache2/conf/apache2.conf" o "/etc/httpd/conf/httpd.conf".::
 
 	Where is Apache main configuration file [/etc/httpd/conf/httpd.conf] ?
 
-Ingrese o valide la ruta del archivo de configuración principal de Apache, generalmente "/etc/apache2/conf/apache2.conf" o "/etc/httpd/conf/httpd.conf".
+Ingrese o valide la cuenta de usuario que ejecuta el daemon de Apache, generalmente "apache" o "www" (en Debian/Ubuntu está "www-data").::
 
 	Which user account is running Apache web server [apache] ?
 
-Ingrese o valide la cuenta de usuario que ejecuta el daemon de Apache, generalmente "apache" o "www" (en Debian/Ubuntu está "www-data").::
+Ingrese o valide el grupo de usuarios del demonio de Apache, generalmente "apache" o "www" (bajo Debian/Ubuntu está "www-data").::
 
 	Which user group is running Apache web server [apache] ?
 
-Ingrese o valide el grupo de usuarios del demonio de Apache, generalmente "apache" o "www" (bajo Debian/Ubuntu está "www-data").::
+Incluimos el archivo de configuración de ocs inventoryen la ruta por defecto::
 
 	Where is Apache Include configuration directory [/etc/httpd/conf.d] ?
 
-Incluimos el archivo de configuración en la ruta por defecto::
+A continuación, la configuración comprueba los binarios de intérprete de PERL. Introduzca o valide la ruta al intérprete PERL.
 
 	Where is PERL interpreter binary [/usr/bin/perl] ?
 
-A continuación, la configuración comprueba los binarios de intérprete de PERL. Introduzca o valide la ruta al intérprete PERL.
-
 Nota: 
-Si no está utilizando el intérprete de perl del sistema, pero otro como intérprete de perl de XAMPP/LAMPP, debe especificar la ruta completa a este intérprete de Perl, no el sistema predeterminado (/opt/lampp/bin/perl generalmente se usa en XAMPP/LAMPP).::
-
-	Do you wish to setup Communication server on this computer ([y]/n)?
-
+Si no está utilizando el intérprete de perl del sistema, pero otro como intérprete de perl de XAMPP/LAMPP, debe especificar la ruta completa a este intérprete de Perl, no el sistema predeterminado (/opt/lampp/bin/perl generalmente se usa en XAMPP/LAMPP).
 
 Ahora se recopila información común para configurar el servidor de comunicaciones o la consola de administración. El programa de instalación le pregunta si desea configurar el servidor de comunicación en esta computadora. Ingrese “y” o valide para configurar el servidor de comunicación, “n” para omitir la instalación del servidor de comunicación.
 
@@ -268,6 +265,9 @@ Bajo la distribución de Linux habilitada para RPM (RedHat/Fedora, Oracle Linux 
 	rpm –q mod_perl
 	mod_perl-2.0.10-3.el7.x86_64
 
+Consulta si quiere instalar en este server el servidor de Comunicación::
+
+	Do you wish to setup Communication server on this computer ([y]/n)?
 
 El servidor de comunicación puede crear registros detallados. Estos registros se pueden habilitar estableciendo el valor entero de LOGLEVEL en 1 en la configuración del menú de la consola de administración.::
 
@@ -300,6 +300,10 @@ Advertencia:
 La configuración le preguntará si desea instalar la API REST.::
 
 	Do you wish to setup Rest API server on this computer ([y]/n)?
+
+Consulta en donde se almacenara la API::
+
+	Where do you want the API code to be store [/usr/lib64/perl5/vendor_perl] ?
 
 preguntándole dónde quiere almacenar el código API::
 
@@ -377,7 +381,12 @@ Creación del directorio de archivos de registro del servidor de Administración
 Crear el directorio de archivos de registro de scripts del Servidor de Administración  /var/lib/ocsinventory-reports/scripts.
 Configuración / Instalación del script Perl de IPDISCOVER-UTIL.
 Escribiendo la configuración del servidor de administración en el archivo /etc/apache2/conf-available/ocsinventory-reports.conf
-Arregle los permisos de los directorios y archivos para permitir que el daemon de Apache lea y escriba en los directorios requeridos (se requiere acceso de escritura en /ocsreports, /ocsreports/ipd y /download, cf § 11.4 Permisos de archivos y directorios en Linux).
+Arregle los permisos de los directorios y archivos para permitir que el daemon de Apache lea y escriba en los directorios requeridos (se requiere acceso de escritura en /ocsreports, /ocsreports/ipd y /download, cf § 11.4 Permisos de archivos y directorios en Linux).Si solo si lo requiere::
+
+	chown -R apache.apache /usr/share/ocsinventory-reports/
+	chown -R apache.apache /var/lib/ocsinventory-reports
+	
+
 Configure el script PERL ipdiscover-util.pl para acceder a la base de datos e instalarlo.
 
 
@@ -392,13 +401,6 @@ Advertencia:
 	max_input_time
 	memory_limit
 
-Otorgamos permisos y valores del PHP.::
-
-	chown -R apache.apache /usr/share/ocsinventory-reports/
-
-	vi /etc/php.ini
-	post_max_size = 1024M
-	upload_max_filesize = 1024M
 
 Ahora, puede reiniciar el servidor web Apache para que los cambios surtan efecto.::
 
@@ -414,11 +416,57 @@ De lo contrario, abra su navegador web favorito y apúntelo en la URL http://Adm
 Como la base de datos aún no se ha creado, esto comenzará el proceso de configuración del inventario de OCS. De lo contrario, puede volver a ejecutar el proceso de configuración explorando la URL http://administration_console/ocsreports/install.php (esto debe usarse al actualizar el servidor de administración de inventario OCS).
 
 
+Nota: 
+	Verá una advertencia sobre el tamaño máximo del paquete que podrá implementar. Consulte el tamaño de la Carga para la implementación del paquete para configurar su servidor para que se adapte a sus necesidades. vea este link http://wiki.ocsinventory-ng.org/08.Extras/Common-errors/#uploads-size-for-package-deployment
+
+
+.. figure:: ../images/02.png
+
+
+Modificar el archivo "php.ini"::
+
+	upload_max_filesize = 200M
+	post_max_size = 201M
+	max_execution_time = -1
+	max_input_time = -1
+
+Riniciamos el apache::
+
+	systemctl restart httpd
+
+Complete la información para conectarse al servidor de bases de datos MySQL con un usuario que tenga la capacidad de crear bases de datos, tablas, índices, etc. (generalmente root):
+
+MySQL user name
+MySQL user password
+MySQL hostname
+
+
+Acciones de instalación: refiérase a Implementar el servidor de base de datos
+
+Haga clic en el siguiente enlace: "Haga clic aquí para ingresar la GUI de OCS-NG"
+
+
+.. figure:: ../images/03.png
+
+
+Si nos sale que debemos actualizar la Base de Datos le damos al boton "Performance the Update"
+
+
+.. figure:: ../images/04.png
+
+
+Simplemente apunte su navegador a la URL http://Administration_server/ocsreports e inicie sesión con **admin** como usuario y **admin** como contraseña. Cuando culmine la configuración
+
+
+.. figure:: ../images/05.png
 
 
 
+Para asegurar su servidor, consulte Asegure su documentación de OCS Inventory NG Server. http://wiki.ocsinventory-ng.org/08.Extras/Secure-your-OCS-Inventory-NG-Server/
 
+Si todo sale bien eliminamos el install.php o lo renombramos::
 
+	mv /usr/share/ocsinventory-reports/ocsreports/install.php /usr/share/ocsinventory-reports/ocsreports/install.php.orig
 
 
 

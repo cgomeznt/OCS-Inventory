@@ -25,29 +25,27 @@ Para instalar PHP desde este repositorio, asegúrese de tener el último archivo
 
 Por ejemplo, para instalar PHP 7.1 en Oracle Linux 7, ejecute estos comandos como usuario root::
 
-	# cd /etc/yum.repos.d
-	# mv public-yum-ol7.repo public-yum-ol7.repo.bak
-	# wget http://yum.oracle.com/public-yum-ol7.repo
-	# yum install yum-utils
-	# yum-config-manager --enable ol7_developer_php71
-	# yum install php
+	cd /etc/yum.repos.d
+	mv public-yum-ol7.repo public-yum-ol7.repo.bak
+	wget http://yum.oracle.com/public-yum-ol7.repo
+	yum install yum-utils
+	yum-config-manager --enable ol7_developer_php71
 
 Instalamos los siguientes componentes que son necesarios para OCS Inventory::
 
-	yum install php php-common php-zip php-gd php-mbstring php-soap php-mysql
+	yum install -y php php-common php-zip php-gd php-mbstring php-soap php-mysql php-xml
 
-
+**IMPORTANTE** ponemos la instalación de PHP 7.x, pero no es estable con OCS Inventory 2.5
 
 Instalar PHP 5.X
 +++++++++++++++++++++++
 Vamos a instalar PHP 5.X con la ayuda de los repos de remi.::
 
-	wget http://yum.oracle.com/repo/OracleLinux/OL7/optional/latest/x86_64/getPackage/php-mbstring-5.4.16-45.el7.x86_64.rpm
-	rpm -ivh php-mbstring-5.4.16-45.el7.x86_64.rpm
+	yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 
 Instalamos yum-utils::
 
-	yum install yum-utils
+	yum install -y yum-utils
 
 Habilitamos el repositorio del PHP que requerimos instalar::
 
@@ -58,7 +56,11 @@ Habilitamos el repositorio del PHP que requerimos instalar::
 Instalamos los siguientes componentes que son necesarios para OCS Inventory::
 
 	yum-config-manager --enable remi-php56   # [Install PHP 5.6]
-	yum install php php-common php-zip php-gd php-mbstring php-soap php-mysql
+	yum install -y php php-common php-zip php-gd php-mbstring php-soap php-mysql php-xml
+
+	wget http://yum.oracle.com/repo/OracleLinux/OL7/optional/latest/x86_64/getPackage/php-mbstring-5.4.16-45.el7.x86_64.rpm
+	rpm -ivh php-mbstring-5.4.16-45.el7.x86_64.rpm
+
 
 Vamos hacer una prueba para certificar que php esta integrado con apache2.::
 
