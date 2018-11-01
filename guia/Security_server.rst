@@ -35,7 +35,9 @@ Conecte al MySQl server::
 
 Cree un nuevo usuario: usuario con contraseña: contraseña con todos los privilegios para la base de datos ocsweb.::
 
-	GRANT ALL PRIVILEGES ON `ocsweb` .* TO 'user'@'localhost' IDENTIFIED BY 'r00tme' WITH GRANT OPTION;
+	GRANT ALL PRIVILEGES ON ocsweb.* TO 'user'@'localhost' IDENTIFIED BY 'r00tme' WITH GRANT OPTION;
+	
+	FLUSH PRIVILEGES;
 
 
 Modificar archivos de configuración

@@ -49,6 +49,10 @@ Antes de continuar debemos instalar este RPM que es una dependencia y no esta en
 	http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-Crypt-DES-2.05-20.el7.x86_64.rpm
 	rpm -ivh perl-Crypt-DES-2.05-20.el7.x86_64.rpm
 
+Instalamos este otro modulo requerido por el agente::
+	
+	yum install perl-LWP-Protocol-https
+
 Editamos el archivo de configuración para agregar el server OCS Inventory::
 
 	vi /etc/ocsinventory/ocsinventory-agent.cfg
