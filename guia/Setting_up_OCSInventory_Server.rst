@@ -470,10 +470,3 @@ Simplemente apunte su navegador a la URL http://Administration_server/ocsreports
 
 Para asegurar su servidor, consulte Asegure su documentación de OCS Inventory NG Server. https://github.com/cgomeznt/OCS-Inventory/blob/master/guia/Security%20_server.rst
 
-Si todo sale bien eliminamos el install.php o lo renombramos::
-
-	mv /usr/share/ocsinventory-reports/ocsreports/install.php /usr/share/ocsinventory-reports/ocsreports/install.php.orig
-
-
-
-

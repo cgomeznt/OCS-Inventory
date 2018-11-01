@@ -41,8 +41,7 @@ Cree un nuevo usuario: usuario con contraseña: contraseña con todos los privil
 Modificar archivos de configuración
 +++++++++++++++++++++++++++++++++++
 
-archivo dbconfig.inc.php
-Bajo Linux, generalmente en::
+archivo **dbconfig.inc.php** Bajo Linux, generalmente en::
 
 	/usr/share/ocsinventory-reports/ocsreports/
 
@@ -58,7 +57,7 @@ Bajo Linux, generalmente en::
 
 Bajo Linux, generalmente en::
 
-	/etc/apache2/conf-available/
+	/etc/httpd/conf.d/z-ocsinventory-server.conf
 
 
 	# User allowed to connect to database
@@ -80,7 +79,7 @@ Desactivar el mensaje de advertencia en la consola de administración.
 Advertencia: 
 	Le recomendamos que asegure su servidor siguiendo los párrafos anteriores, pero si lo desea, puede desactivar el mensaje de advertencia en la GUI
 
-Debe conectarse a la consola de administración, hacer clic en el ícono Usuario, luego en la pestaña Administrar perfiles y elegir el perfil que desea modificar.
+Debe conectarse a la consola de administración, hacer clic en el menu Configuratio luego en Users, luego en la pestaña Administrar perfiles y elegir el perfil que desea modificar.
 
 Haga clic en Derechos para administrar la pestaña, un conjunto Vea los mensajes de advertencia de la GUI en NO.
 
