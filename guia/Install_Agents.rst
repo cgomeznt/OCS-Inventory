@@ -25,14 +25,14 @@ Solicita la instalación es la IP o nombre DNS del servidor OCS Inventory.
 Ahora ejecutamos::
 
 	ocsinventory-agent 
-	[info] No support detected. Registration key: N/A
-	[info] [download] Download is off.
+		[info] No support detected. Registration key: N/A
+		[info] [download] Download is off.
 
-	comment OCS-Inventory
-	startvm 5e24952d-fd29-4fcb-91e1-54086e97e45f
-	no-startvm-errormsgbox
-	[info] [download] Beginning work. I am 11037.
-	[info] [download] Option turned off. Exiting.
+		comment OCS-Inventory
+		startvm 5e24952d-fd29-4fcb-91e1-54086e97e45f
+		no-startvm-errormsgbox
+		[info] [download] Beginning work. I am 11037.
+		[info] [download] Option turned off. Exiting.
 
 
 
@@ -73,6 +73,29 @@ Ya con lo anterior debemos ver la información recolectada de los agentes en el 
 
 .. figure:: ../images/10.png
 
+
+
+
+Este es un ejemplo del archivo **ocsinventory-agent.cfg**::
+
+	# OCS Inventory "Unix Unified Agent" Configuration File
+	#
+	# options used by cron job overides this (see /etc/sysconfig/ocsinventory-agent)
+	#
+
+	# Server URL, unconmment if needed
+	# server = your.ocsserver.name
+	# local = /var/lib/ocsinventory-agent
+	basevardir = /var/lib/ocsinventory-agent
+
+	# Administrative TAG (optional, must be filed before first inventory)
+	# tag = your_tag
+
+	# How to log, can be File,Stderr,Syslog
+	logger = Stderr
+	logfile = /var/log/ocsinventory-agent/ocsinventory-agent.log
+
+	server=192.168.1.210
 
 **No olvide colocar un cron para que ejecute los agentes cada cierto tiempo.**
 
