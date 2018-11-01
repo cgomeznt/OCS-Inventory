@@ -152,7 +152,7 @@ La consola de administración web requiere el servidor web Apache y el lenguaje 
 	yum install php-pecl-zip
 	yum install perl-XML-Simple perl-DBI perl-DBD-MySQL perl-Net-IP
 
-**En oracle linux**:Tambien puede instalar todos los modulos de PERL desde el CPAN, Ver este link para ver como se hace la instalación de PERL para OCS Inventory.
+**En oracle linux**:Tambien puede instalar todos los modulos de PERL desde el CPAN, Ver este `link <https://github.com/cgomeznt/OCS-Inventory/blob/master/guia/Install_Perl.rst>`_ para ver como se hace la instalación de PERL para OCS Inventory.
 
 **También es necesario instalar el soporte GD para PHP.**
 
@@ -388,9 +388,8 @@ Creación del directorio de archivos de registro del servidor de Administración
 Crear el directorio de archivos de registro de scripts del Servidor de Administración  /var/lib/ocsinventory-reports/scripts.
 Configuración / Instalación del script Perl de IPDISCOVER-UTIL.
 Escribiendo la configuración del servidor de administración en el archivo /etc/apache2/conf-available/ocsinventory-reports.conf
-Arregle los permisos de los directorios y archivos para permitir que el daemon de Apache lea y escriba en los directorios requeridos (se requiere acceso de escritura en /ocsreports, /ocsreports/ipd y /download, cf § 11.4 Permisos de archivos y directorios en Linux).Si solo si lo requiere::
+Arregle los permisos de los directorios y archivos para permitir que el daemon de Apache lea y escriba en los directorios requeridos (se requiere acceso de escritura en /ocsreports, /ocsreports/ipd y /download, cf § 11.4 Permisos de archivos y directorios en Linux).::
 
-	chown -R apache.apache /usr/share/ocsinventory-reports/
 	chown -R apache.apache /var/lib/ocsinventory-reports
 	
 
@@ -469,7 +468,7 @@ Simplemente apunte su navegador a la URL http://Administration_server/ocsreports
 
 
 
-Para asegurar su servidor, consulte Asegure su documentación de OCS Inventory NG Server. http://wiki.ocsinventory-ng.org/08.Extras/Secure-your-OCS-Inventory-NG-Server/
+Para asegurar su servidor, consulte Asegure su documentación de OCS Inventory NG Server. https://github.com/cgomeznt/OCS-Inventory/blob/master/guia/Security%20_server.rst
 
 Si todo sale bien eliminamos el install.php o lo renombramos::
 
