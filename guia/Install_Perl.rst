@@ -87,7 +87,10 @@ Ahora debe instalar este paquete que es necesario **mod_perl**::
 
 	yum install mod_perl.x86_64
 
+Tips::
 
-yum whatprovides Compress-Zlib
+	yum whatprovides Compress-Zlib
 
-yum info perl-IO-Compress.noarch
+	yum info perl-IO-Compress.noarch
+
+export LANG=en_US.utf8 LC_ALL=en_US.utf8

@@ -3,6 +3,16 @@ Deploying database server
 
 El servidor de inventario de OCS necesita una base de datos para almacenar información del inventario
 
+Agregue el repositorio de MariaDB en /etc/yum.repos.d/::
+
+	vi /etc/yum.repos.d/MariaDB.repo
+
+	[mariadb]
+	name = MariaDB
+	baseurl = http://yum.mariadb.org/10.1/centos7-amd64
+	gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+	gpgcheck=1
+
 Instalar los requisitos del servidor de base de datos
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

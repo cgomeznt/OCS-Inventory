@@ -57,6 +57,10 @@ Perl module Switch
 MySQL or MariaDB version 4.1.0 or higher with InnoDB engine active. Mysql version upper than 5.5 are not supported but may work.
 Make utility such as GNU make.
 
+Instalación de PHP 7.X y sus componentes
++++++++++++++++++++++++++++++++++++++++
+
+Ver este link para ver como se hace la instalación de PHP 7.X y sus componentes para OCS Inventory.
 
 Nota: 
 	la configuración del servidor OCS Inventory NG comprobará todos estos componentes y se cerrará si falta alguno.
@@ -71,14 +75,19 @@ Instalación del servidor de comunicación (requiere módulos PERL)
 
 El servidor de comunicación web requiere el servidor web Apache y el lenguaje de scripting Perl 5 y algunos módulos adicionales para Perl 5 (ver Requisitos). Actúa como un módulo de Apache que maneja las solicitudes de los agentes de inventario HTTP OCS a un directorio virtual/ocsinventory. Ya el servidor de comunicación web requiere dependencias de mysql si elige instalar el servidor de base de datos solo, puede consultar esta página: Implementación del servidor de base de datos
 
+**En OracleLinux/Redhat/Centos 7 como Linux**, configuremos el EPEL su ultimo release::
+
+	yum install -y wget
+	
+	wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+	rpm -ivh epel-release-latest-7.noarch.rpm
+
 **En OracleLinux/Redhat/Centos 7 como Linux**::
 
 	yum install -y  httpd
 	systemctl status httpd
 	systemctl enable httpd
 	systemctl start httpd
-	yum install -y mariadb
-
 
 Advertencia: 
 	debe tener privilegios de root para configurar los módulos perl necesarios. Es mejor para la integridad del sistema utilizar los paquetes precompilados de su distribución cuando están disponibles. Algunos de estos paquetes solo están disponibles en https://fedoraproject.org/wiki/EPEL/FAQ#howtouse
@@ -87,12 +96,32 @@ Advertencia:
 Nota: 
 	OracleLinux/Redhat/Centos 7, el paquete "Apache DBI" no estaba en el repositorio EPEL, puede encontrar el rpm aquí. https://centos.pkgs.org/7/epmel-x86_64/perl-Apache-DBI-1.12-2.el7.noarch.rpm.html
 
+Vamos a instalar estos paquetes primero, que son dependencias y no estan en los repositorios de Oracle Linux ni en EPEL::
+
+	wget http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-Devel-StackTrace-1.30-2.el7.noarch.rpm
+	rpm -ivh perl-Devel-StackTrace-1.30-2.el7.noarch.rpm
+
+	wget http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-File-pushd-1.005-2.el7.noarch.rpm
+	rpm -ivh perl-File-pushd-1.005-2.el7.noarch.rpm
+
+	wget http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-Class-Inspector-1.28-2.el7.noarch.rpm
+	rpm -ivh perl-Class-Inspector-1.28-2.el7.noarch.rpm
+
+	wget http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-Switch-2.16-7.el7.noarch.rpm
+	rpm -ivh perl-Switch-2.16-7.el7.noarch.rpm
+
+	wget http://rpms.remirepo.net/enterprise/7/remi/x86_64//perl-Apache2-SOAP-0.73-13.el7.remi.noarch.rpm
+	rpm -ivh perl-Apache2-SOAP-0.73-13.el7.remi.noarch.rpm
+
+	wget https://harbottle.gitlab.io/epmel/7/x86_64//perl-Apache-DBI-1.12-2.el7.noarch.rpm
+	yum install -y perl-Digest-MD5.x86_64 perl-Digest-SHA1.x86_64 perl-Test-Simple
+	rpm -ivh perl-Apache-DBI-1.12-2.el7.noarch.rpm
 
 **En Redhat/Centos 7 como Linux**:, puede usar "yum" para configurar los módulos requeridos::
 
 	yum install perl-XML-Simple perl-Compress-Zlib perl-DBI perl-DBD-MySQL perl-Net-IP perl-SOAP-Lite perl-Archive-Zip perl-Mojolicious perl-Plack perl-XML-Entities perl-Switch
 
-**En oracle linux**:, Es mejor instalar todos los modulos de PERL desde el CPAN, Ver este link para ver como se hace la instalación de PERL para OCS Inventory.
+**En oracle linux**: Tambien puede instalar todos los modulos de PERL desde el CPAN, Ver este link para ver como se hace la instalación de PERL para OCS Inventory.
 
 
 Instalación de la consola de administración (requiere módulos PHP)
@@ -103,8 +132,8 @@ La consola de administración web requiere el servidor web Apache y el lenguaje 
 
 **En OracleLinux/Redhat/Centos 7 como Linux**::
 
-	yum instalar httpd
-	yum instalar mariadb-cliente
+	yum install httpd
+	yum install MariaDB-client.x86_64
 
 **Instalar PHP Zip soporte y dependencias.**
 
@@ -113,7 +142,7 @@ La consola de administración web requiere el servidor web Apache y el lenguaje 
 	yum install php-pecl-zip
 	yum install perl-XML-Simple perl-DBI perl-DBD-MySQL perl-Net-IP
 
-**En oracle linux**:, Es mejor instalar todos los modulos de PERL desde el CPAN, Ver este link para ver como se hace la instalación de PERL para OCS Inventory.
+**En oracle linux**:Tambien puede instalar todos los modulos de PERL desde el CPAN, Ver este link para ver como se hace la instalación de PERL para OCS Inventory.
 
 **También es necesario instalar el soporte GD para PHP.**
 
@@ -157,6 +186,7 @@ Nota:
 
 Descargue la última versión del servidor tarball "OCSNG_UNIX_SERVER-2.4.x.tar.gz" desde el sitio web de inventario de OCS.::
 
+	wget https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.5/OCSNG_UNIX_SERVER_2.5.tar.gz
 	tar xvzf OCSNG_UNIX_SERVER_2.5.tar.gz
 	cd OCSNG_UNIX_SERVER_2.5
 
@@ -238,7 +268,6 @@ Bajo la distribución de Linux habilitada para RPM (RedHat/Fedora, Oracle Linux 
 	rpm –q mod_perl
 	mod_perl-2.0.10-3.el7.x86_64
 
-	Which version of Apache mod_perl the computer is running ([1]/2) ? 2
 
 El servidor de comunicación puede crear registros detallados. Estos registros se pueden habilitar estableciendo el valor entero de LOGLEVEL en 1 en la configuración del menú de la consola de administración.::
 
@@ -268,7 +297,7 @@ Switch
 Advertencia: 
 	si falta alguno de estos módulos, la configuración se cancelará.
 
-La configuración le preguntará si desea instalar la API de descanso.::
+La configuración le preguntará si desea instalar la API REST.::
 
 	Do you wish to setup Rest API server on this computer ([y]/n)?
 
@@ -300,7 +329,7 @@ Culmina la instalación del Servidor de comunicación::
 	|         to ensure all is good. Then restart Apache daemon.           |
 	+----------------------------------------------------------------------+
 
-Ahora nos pregunta si instalaremos en este server la Consola Administrativa.::
+Ahora nos pregunta si instalaremos en este server la **Consola Administrativa**::
 
 	Do you wish to setup Administration Server (Web Administration Console) on this computer ([y]/n)?
 
@@ -348,7 +377,7 @@ Creación del directorio de archivos de registro del servidor de Administración
 Crear el directorio de archivos de registro de scripts del Servidor de Administración  /var/lib/ocsinventory-reports/scripts.
 Configuración / Instalación del script Perl de IPDISCOVER-UTIL.
 Escribiendo la configuración del servidor de administración en el archivo /etc/apache2/conf-available/ocsinventory-reports.conf
-Arregle los permisos de los directorios y archivos para permitir que el daemon de Apache lea y escriba en los directorios requeridos (se requiere acceso de escritura en /ocsreports, /ocsreports/ipd and /download, cf § 11.4 Permisos de archivos y directorios en Linux).
+Arregle los permisos de los directorios y archivos para permitir que el daemon de Apache lea y escriba en los directorios requeridos (se requiere acceso de escritura en /ocsreports, /ocsreports/ipd y /download, cf § 11.4 Permisos de archivos y directorios en Linux).
 Configure el script PERL ipdiscover-util.pl para acceder a la base de datos e instalarlo.
 
 
@@ -378,7 +407,7 @@ Ahora, puede reiniciar el servidor web Apache para que los cambios surtan efecto
 Nota: 
 	No está obligado a iniciar install.php, también puede usar este comando::
 
-	mysql -f -hlocalhost -uroot -p DBNAME < ocsbase.sql >log.log
+	mysql -f -hlocalhost -uroot -p ocsweb < ocsbase.sql >log.log
 
 De lo contrario, abra su navegador web favorito y apúntelo en la URL http://Administration_console/ocsreports para conectar el servidor de administración.
 
