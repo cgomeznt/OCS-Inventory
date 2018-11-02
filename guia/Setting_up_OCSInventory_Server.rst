@@ -253,7 +253,7 @@ Incluimos el archivo de configuración de ocs inventoryen la ruta por defecto::
 
 	Where is Apache Include configuration directory [/etc/httpd/conf.d] ?
 
-A continuación, la configuración comprueba los binarios de intérprete de PERL. Introduzca o valide la ruta al intérprete PERL.
+A continuación, la configuración comprueba los binarios de intérprete de PERL. Introduzca o valide la ruta al intérprete PERL.::
 
 	Where is PERL interpreter binary [/usr/bin/perl] ?
 

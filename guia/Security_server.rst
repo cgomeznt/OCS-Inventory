@@ -75,6 +75,11 @@ No deje la contraseña de ocs, cambiela::
 
 	SET PASSWORD FOR ocs@'localhost' = PASSWORD('passwordhere');
 
+Si se crearon configuraciones según la ruta de la IP, cambiela a todas las que fueron creadas::
+
+	SET PASSWORD FOR ocs@'192.168.1.210' = PASSWORD('passwordhere');
+	SET PASSWORD FOR ocs@'192.168.1.220' = PASSWORD('passwordhere');
+
 **IMPORTANTE** ESTO TRAE PROBLEMA CON EL AGENTE, el agente va leer el archivo z-ocsinventory-server.conf y ahí estara otro usuario y clave que no tiene permisos para la BD
 
 Desactivar el mensaje de advertencia en la consola de administración.

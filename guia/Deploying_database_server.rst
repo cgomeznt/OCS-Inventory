@@ -83,6 +83,10 @@ Esta parte es solo si desea instalar el servidor de bases de datos, el servidor 
 
 Primer paso para crear la base de datos::
 
+	mysql -uroot -p
+
+Creamos la Base de Datos::
+
 	CREATE DATABASE ocsweb;
 
 Para un servidor separado, debe tener dos usuarios si utiliza un servidor diferente para la base de datos, el servidor de comunicaciones y la consola de administración::
