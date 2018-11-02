@@ -46,7 +46,7 @@ Para Oracle Linux debemos descargar el repositorio de OCS Inventory e instalarlo
 
 Antes de continuar debemos instalar este RPM que es una dependencia y no esta en los repositorios::
 
-	http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-Crypt-DES-2.05-20.el7.x86_64.rpm
+	wget http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-Crypt-DES-2.05-20.el7.x86_64.rpm
 	rpm -ivh perl-Crypt-DES-2.05-20.el7.x86_64.rpm
 
 Instalamos este otro modulo requerido por el agente::
@@ -62,6 +62,10 @@ Comente la linea en donde esta el "local" y agregue la linea de "basevardir"::
 
 	# local = /var/lib/ocsinventory-agent
 	basevardir = /var/lib/ocsinventory-agent
+
+Instalamos el agente de ocs inventory::
+
+	yum -y install ocsinventory-agent.x86_64
 
 Ahora ejecutamos::
 
