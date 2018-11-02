@@ -44,6 +44,7 @@ configuremos el EPEL su ultimo release
 	wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 	rpm -ivh epel-release-latest-7.noarch.rpm
 	yum update
+	yum install -y perl
 
 Requerimientos
 ++++++++++++++++++
@@ -124,7 +125,7 @@ Vamos a instalar estos paquetes primero, que son dependencias y no estan en los 
 	rpm -ivh perl-Apache2-SOAP-0.73-13.el7.remi.noarch.rpm
 
 	wget https://harbottle.gitlab.io/epmel/7/x86_64//perl-Apache-DBI-1.12-2.el7.noarch.rpm
-	yum install -y perl-Digest-MD5.x86_64 perl-Digest-SHA1.x86_64 perl-Test-Simple
+	yum install -y perl-Digest-MD5.x86_64 perl-Digest-SHA1.x86_64 perl-Test-Simple perl-DBI.x86_64
 	rpm -ivh perl-Apache-DBI-1.12-2.el7.noarch.rpm
 
 **En Redhat/Centos 7 como Linux**:, puede usar "yum" para configurar los módulos requeridos::

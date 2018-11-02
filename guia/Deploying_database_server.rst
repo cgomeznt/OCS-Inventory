@@ -103,22 +103,17 @@ No olvides aplicar los parámetros::
 	FLUSH PRIVILEGES;
 
 
-**En su servidor de comunicaciones/servidor de la consola de administración:** debe cambiar el host de la base de datos en el archivo /etc/apache2/conf-avaible/z-ocsinventory-server.conf::
+**En su servidor de comunicaciones:** debe cambiar el host de la base de datos en el archivo /etc/httpd/conf.d/z-ocsinventory-server.conf::
 
 	PerlSetEnv OCS_DB_HOST YourDatabaseServerIP
 
 
-No olvides activar tu conf con el siguiente comando::
-
-	a2enmod z-ocsinventory-server.conf
-
-
 Reinicia tu servicio de apache para activar la configuración.::
 
-	systemctl restart apache2
+	systemctl restart httpd
 
 
-**En su servidor de comunicaciones/servidor de la consola de administración:** debe cambiar el host de la base de datos en el archivo /usr/share/ocsinventory-reports/ocsreports/dbconfig.inc.php::
+**En su servidor de la consola de administración:** debe cambiar el host de la base de datos en el archivo /usr/share/ocsinventory-reports/ocsreports/dbconfig.inc.php::
 
 	$_SESSION["SERVEUR_SQL"]="YourDatabaseServerIP";
 
