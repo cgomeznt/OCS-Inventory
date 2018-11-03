@@ -67,6 +67,23 @@ Bajo Linux, generalmente en::
 	# Password for user
 	PerlSetVar OCS_DB_PWD password
 
+**zz-ocsinventory-restapi.conf**
+
+Bajo Linux, generalmente en::
+
+	/etc/httpd/conf.d/zz-ocsinventory-restapi.conf
+
+
+	<Perl>
+	  $ENV{PLACK_ENV} = 'production';
+	  $ENV{MOJO_HOME} = '/usr/lib64/perl5/vendor_perl';
+	  $ENV{MOJO_MODE} = 'deployment';
+	  $ENV{OCS_DB_HOST} = '192.168.1.210';
+	  $ENV{OCS_DB_PORT} = '3306';
+	  $ENV{OCS_DB_LOCAL} = 'ocsweb';
+	  $ENV{OCS_DB_USER} = 'ocs';
+	  $ENV{OCS_DB_PWD} = 'ipasswordhere';
+	</Perl>
 
 Advertencia: 
 	No te olvides de reiniciar Apache. De lo contrario, el servidor OCS Inventory NG devolverá un ERROR 500 a los agentes que lo contactan.
