@@ -62,10 +62,19 @@ Bajo Linux, generalmente en::
 	/etc/httpd/conf.d/z-ocsinventory-server.conf
 
 
-	# User allowed to connect to database
-	PerlSetEnv OCS_DB_USER user
-	# Password for user
-	PerlSetVar OCS_DB_PWD password
+	  # Master Database settings
+	  # Replace localhost by hostname or ip of MySQL server for WRITE
+	  PerlSetEnv OCS_DB_HOST 192.168.1.210
+	  # Replace 3306 by port where running MySQL server, generally 3306
+	  PerlSetEnv OCS_DB_PORT 3306
+	  # Name of database
+	  PerlSetEnv OCS_DB_NAME ocsweb
+	  PerlSetEnv OCS_DB_LOCAL ocsweb
+	  # User allowed to connect to database
+	  PerlSetEnv OCS_DB_USER ocs
+	  # Password for user
+	  PerlSetVar OCS_DB_PWD passwordhere
+
 
 **zz-ocsinventory-restapi.conf**
 
