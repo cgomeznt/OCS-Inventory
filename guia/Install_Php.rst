@@ -28,7 +28,7 @@ Por ejemplo, para instalar PHP 7.1 en Oracle Linux 7, ejecute estos comandos com
 	cd /etc/yum.repos.d
 	mv public-yum-ol7.repo public-yum-ol7.repo.bak
 	wget http://yum.oracle.com/public-yum-ol7.repo
-	yum install yum-utils
+	yum install -y yum-utils
 	yum-config-manager --enable ol7_developer_php71
 
 Instalamos los siguientes componentes que son necesarios para OCS Inventory::
@@ -41,7 +41,7 @@ Instalar PHP 5.X
 +++++++++++++++++++++++
 Vamos a instalar PHP 5.X con la ayuda de los repos de remi.::
 
-	yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+	yum install -y  http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 
 Instalamos yum-utils::
 
@@ -57,6 +57,10 @@ Instalamos los siguientes componentes que son necesarios para OCS Inventory::
 
 	yum-config-manager --enable remi-php56   # [Install PHP 5.6]
 	yum install -y php php-common php-zip php-gd php-mbstring php-soap php-mysql php-xml
+
+Reiniciamos el Apache.::
+
+	systemctl restart httpd
 
 Vamos hacer una prueba para certificar que php esta integrado con apache.::
 

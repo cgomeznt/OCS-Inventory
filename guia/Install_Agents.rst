@@ -53,6 +53,10 @@ Instalamos este otro modulo requerido por el agente::
 	
 	yum install perl-LWP-Protocol-https
 
+Instalamos el agente de ocs inventory::
+
+	yum -y install ocsinventory-agent.x86_64
+
 Editamos el archivo de configuración para agregar el server OCS Inventory::
 
 	vi /etc/ocsinventory/ocsinventory-agent.cfg
@@ -62,10 +66,6 @@ Comente la linea en donde esta el "local" y agregue la linea de "basevardir"::
 
 	# local = /var/lib/ocsinventory-agent
 	basevardir = /var/lib/ocsinventory-agent
-
-Instalamos el agente de ocs inventory::
-
-	yum -y install ocsinventory-agent.x86_64
 
 Ahora ejecutamos::
 
