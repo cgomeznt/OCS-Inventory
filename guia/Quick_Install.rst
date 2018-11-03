@@ -1,6 +1,13 @@
 Instalación Rapida
 ==================
 
+En esta configuración se utilizaran dos servidores que llamaremos **nodo01** y **nodo02**, 
+En el nodo01 estará instalado:
+* La Base de Datos
+* El Servidor de comunicaciones
+
+En el nodo02 estará instalado:
+El servidor para la Consola de administración
 
 configuremos el EPEL su ultimo release
 +++++++++++++++++++++++++++++++++++++++
@@ -646,7 +653,7 @@ Configuración del management server
 +++++++++++++++++++++++++++++++++++++++++
 
 
-Todo esto lo vamos hacer en el nodo01.
+Todo esto lo vamos hacer en el nodo02.
 
 Advertencia: 
 	Le recomendamos que revise su php.ini cuando actualice su servidor de 1.x a 2.x, especialmente estas variables:
@@ -688,7 +695,7 @@ Renombramos el archivo install.php::
 
 	mv /usr/share/ocsinventory-reports/ocsreports/install.php /usr/share/ocsinventory-reports/ocsreports/install.php.orig
 
-Riniciamos el apache::
+Reiniciamos el apache::
 
 	systemctl restart httpd
 
@@ -741,7 +748,7 @@ Editamos el archivo de configuración de la BD, para colocar el nuevo password :
 	?>
 
 
-Riniciamos el apache::
+Reiniciamos el apache::
 
 	systemctl restart httpd
 
@@ -770,6 +777,6 @@ Editamos el archivo de configuración de la BD, para colocar el nuevo password :
 
 	[...]
 
-Riniciamos el apache::
+Reiniciamos el apache::
 
 	systemctl restart httpd
