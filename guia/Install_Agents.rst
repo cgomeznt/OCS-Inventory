@@ -39,6 +39,13 @@ Ahora ejecutamos::
 Instalar y configurar OCS Inventory para los RPM
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
+Para Oracle Linux debemos configurar el EPEL su ultimo release::
+
+	yum install -y wget
+
+	wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+	rpm -ivh epel-release-latest-7.noarch.rpm
+
 Para Oracle Linux debemos descargar el repositorio de OCS Inventory e instalarlo::
 
 	wget https://rpm.ocsinventory-ng.org/ocsinventory-release-latest.el7.ocs.noarch.rpm
