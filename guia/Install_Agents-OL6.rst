@@ -1,6 +1,13 @@
 Para instalar debe hacer esto:: 
 
-	yum install -y nmap perl perl-Net-IP.noarch perl-Proc-Daemon.noarch perl-XML-Simple.noarch perl-Net-SSLeay.x86_64
+Instalar el EPEL para RHEL/CentOS 6 64-Bit::
+
+	# wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+	# rpm -ivh epel-release-6-8.noarch.rpm
+
+Comenzamos instalar los paguetes::
+	
+	yum install -y nmap perl perl-Net-IP.noarch perl-Proc-Daemon.noarch perl-XML-Simple.noarch perl-Net-SSLeay.x86_64 libc-client.i686
 
 Estos RPM los debe descargar de forma manual y luego instalar::
 	
@@ -10,7 +17,7 @@ Estos RPM los debe descargar de forma manual y luego instalar::
 	Preparando...               ########################################### [100%]
 	   1:libx86                 ########################################### [100%]
 
-	# # wget http://rpms.remirepo.net/enterprise/6/remi/i386//monitor-edid-3.0-2.el6.remi.i686.rpm
+	# wget http://rpms.remirepo.net/enterprise/6/remi/i386//monitor-edid-3.0-2.el6.remi.i686.rpm
 	# rpm -ivh monitor-edid-3.0-2.el6.remi.i686.rpm
 	advertencia:monitor-edid-3.0-2.el6.remi.i686.rpm: CabeceraV4 DSA/SHA1 Signature, ID de clave 00f97f56: NOKEY
 	Preparando...               ########################################### [100%]
