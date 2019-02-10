@@ -1,24 +1,28 @@
-Para instalar debe hacer esto::
+Para instalar debe hacer esto:: 
 
-	yum install -y nmap perl perl-Net-IP.noarch perl-Proc-Daemon.noarch perl-XML-Simple.noarch
+	yum install -y nmap perl perl-Net-IP.noarch perl-Proc-Daemon.noarch perl-XML-Simple.noarch perl-Net-SSLeay.x86_64
 
 Estos RPM los debe descargar de forma manual y luego instalar::
-
+	
+	# wget http://rpms.remirepo.net/enterprise/6/remi/i386//libx86-1.1-9.el6.remi.i686.rpm
 	# rpm -ivh libx86-1.1-9.el6.remi.i686.rpm
 	advertencia:libx86-1.1-9.el6.remi.i686.rpm: CabeceraV4 DSA/SHA1 Signature, ID de clave 00f97f56: NOKEY
 	Preparando...               ########################################### [100%]
 	   1:libx86                 ########################################### [100%]
 
+	# # wget http://rpms.remirepo.net/enterprise/6/remi/i386//monitor-edid-3.0-2.el6.remi.i686.rpm
 	# rpm -ivh monitor-edid-3.0-2.el6.remi.i686.rpm
 	advertencia:monitor-edid-3.0-2.el6.remi.i686.rpm: CabeceraV4 DSA/SHA1 Signature, ID de clave 00f97f56: NOKEY
 	Preparando...               ########################################### [100%]
 	   1:monitor-edid           ########################################### [100%]
 
+	# wget http://rpms.remirepo.net/enterprise/6/test/i386//perl-Ocsinventory-Agent-2.1-2.el6.remi.noarch.rpm 
 	# rpm -ivh perl-Ocsinventory-Agent-2.1-2.el6.remi.noarch.rpm
 	advertencia:perl-Ocsinventory-Agent-2.1-2.el6.remi.noarch.rpm: CabeceraV3 DSA/SHA1 Signature, ID de clave 00f97f56: NOKEY
 	Preparando...               ########################################### [100%]
 	   1:perl-Ocsinventory-Agent########################################### [100%]
 
+	# wget http://rpms.remirepo.net/enterprise/6/test/x86_64//ocsinventory-agent-2.1-2.el6.remi.x86_64.rpm
 	# rpm -ivh ocsinventory-agent-2.1-2.el6.remi.x86_64.rpm
 	advertencia:ocsinventory-agent-2.1-2.el6.remi.x86_64.rpm: CabeceraV3 DSA/SHA1 Signature, ID de clave 00f97f56: NOKEY
 	Preparando...               ########################################### [100%]
